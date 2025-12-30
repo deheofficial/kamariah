@@ -69,7 +69,7 @@ const BrandStory = () => {
   return (
     <section
       id="story"
-      className="py-24 bg-background"
+      className="py-24 bg-white dark:bg-slate-900"
     >
       <div className="container mx-auto px-4">
         {/* Section Header */}
@@ -138,26 +138,26 @@ const BrandStory = () => {
           {values.map((value, index) => (
             <div
               key={value.title}
-              className="group bg-card p-6 rounded-xl shadow-soft hover:shadow-card transition-all duration-300 border border-border/50 hover:border-gold/30 dark:bg-slate-800 dark:border-slate-700"
+              className="group bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-slate-700"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="mb-4 flex items-center justify-center">
                 {typeof value.icon === "function" && value.icon.name === "MalaysiaFlag" ? (
                   <value.icon size={32} />
                 ) : value.icon === Heart ? (
-                  <Heart size={32} color="#ef4444" fill="#ef4444" strokeWidth={2.2} />
+                  <Heart size={32} color="#ef4444" fill="#ef4444" strokeWidth={2} />
                 ) : value.icon === Shield ? (
-                  <Shield size={32} color="#facc15" fill="#facc15" strokeWidth={2.2} />
+                  <Shield size={32} color="#facc15" fill="#facc15" strokeWidth={2} />
                 ) : value.icon === ForkSpoon ? (
                   <ForkSpoon size={32} className="text-[#cd7f32]" />
                 ) : (
-                  <value.icon size={32} color="#3b82f6" strokeWidth={2.2} />
+                  <value.icon size={32} color="#3b82f6" strokeWidth={2} />
                 )}
               </div>
-              <h3 className="font-serif text-lg font-semibold text-foreground dark:text-white mb-2">
+              <h3 className="font-serif text-lg font-semibold text-gray-900 dark:text-white mb-2 text-center">
                 {value.title}
               </h3>
-              <p className="text-sm text-muted-foreground dark:text-slate-300 font-serif">
+              <p className="text-sm text-gray-600 dark:text-slate-300 font-serif text-center">
                 {value.description}
               </p>
             </div>

@@ -27,7 +27,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-background">
+    <section id="contact" className="py-24 bg-white dark:bg-slate-900">
       <div className="container mx-auto px-4">
         {/* ===== Section Header ===== */}
         <div className="text-center mb-14 sm:mb-16">
@@ -56,11 +56,11 @@ const Contact = () => {
               className="
                 flex items-start gap-4
                 p-4 sm:p-5
-                bg-background
+                bg-gray-50 dark:bg-slate-800
                 rounded-xl
-                border border-border
-                hover:border-gold/30
-                hover:shadow-soft
+                border border-gray-200 dark:border-slate-700
+                hover:border-blue-300 dark:hover:border-blue-700
+                hover:shadow-md
                 transition-all
                 w-full
                 max-w-full
@@ -70,21 +70,21 @@ const Contact = () => {
             >
               <div className="
                 w-12 h-12 min-w-[3rem]
-                bg-gold/10
+                bg-blue-50 dark:bg-blue-900/30
                 rounded-xl
                 flex items-center justify-center
                 flex-shrink-0
-                group-hover:bg-gold/20
+                group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50
                 transition-colors
               ">
-                <info.icon className="text-gold" size={24} />
+                <info.icon className="text-blue-600 dark:text-blue-400" size={24} />
               </div>
 
               <div className="min-w-0 w-full">
-                <h3 className="font-serif text-lg font-semibold text-white mb-3">
+                <h3 className="font-serif text-lg font-semibold text-gray-900 dark:text-white mb-2">
                   {info.label}
                 </h3>
-                <p className="text-base sm:text-lg font-medium text-foreground break-all sm:break-words">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 break-all sm:break-words">
                   {info.value}
                 </p>
               </div>
@@ -93,22 +93,22 @@ const Contact = () => {
 
           {/* ===== Business Hours Card ===== */}
           <div className="
-            bg-background
+            bg-gray-50 dark:bg-slate-800
             rounded-xl
             p-4 sm:p-6
-            border border-border
+            border border-gray-200 dark:border-slate-700
             w-full
             max-w-full
             flex items-start gap-4
           ">
-            <div className="w-12 h-12 min-w-[3rem] bg-gold/10 rounded-xl flex items-center justify-center flex-shrink-0">
-              <Clock className="text-gold" size={24} />
+            <div className="w-12 h-12 min-w-[3rem] bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
+              <Clock className="text-blue-600 dark:text-blue-400" size={24} />
             </div>
             <div>
-              <h3 className="font-serif text-lg font-semibold text-foreground mb-3">
+              <h3 className="font-serif text-lg font-semibold text-gray-900 dark:text-white mb-3">
                 {t("businessHours")}
               </h3>
-              <p className="text-white font-medium">
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
                 Monday - Friday : 9:00 AM - 6:00 PM<br />
                 Saturday, Sunday & Public Holiday : Closed
               </p>
@@ -117,23 +117,23 @@ const Contact = () => {
 
           {/* ===== Contact Form Card ===== */}
           <div className="
-            bg-background
+            bg-gray-50 dark:bg-slate-800
             rounded-2xl
             p-6 sm:p-8
-            border border-border
-            shadow-soft
+            border border-gray-200 dark:border-slate-700
+            shadow-sm
             w-full
             max-w-full
             md:col-span-2
           ">
-            <h3 className="font-serif text-xl sm:text-2xl font-semibold text-foreground mb-6">
+            <h3 className="font-serif text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white mb-6">
               {t("sendMessageTitle", "Send us a Message")}
             </h3>
 
             <form className="space-y-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-sm font-medium text-white mb-2">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     {t("formNameLabel", "Name")}
                   </label>
                   <input
@@ -142,21 +142,21 @@ const Contact = () => {
                     className="
                       w-full
                       px-4 py-3
-                      bg-card
-                      border border-input
+                      bg-white dark:bg-slate-900
+                      border border-gray-300 dark:border-slate-600
                       rounded-lg
                       focus:outline-none
-                      focus:ring-2 focus:ring-gold/50
-                      focus:border-gold
+                      focus:ring-2 focus:ring-blue-500
+                      focus:border-blue-500
                       transition-all
-                      text-white
-                      placeholder:text-white/60
+                      text-gray-900 dark:text-white
+                      placeholder:text-gray-400 dark:placeholder:text-gray-500
                     "
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-white mb-2">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     {t("formEmailLabel", "Email")}
                   </label>
                   <input
@@ -165,37 +165,36 @@ const Contact = () => {
                     className="
                       w-full
                       px-4 py-3
-                      bg-card
-                      border border-input
+                      bg-white dark:bg-slate-900
+                      border border-gray-300 dark:border-slate-600
                       rounded-lg
                       focus:outline-none
-                      focus:ring-2 focus:ring-gold/50
-                      focus:border-gold
+                      focus:ring-2 focus:ring-blue-500
+                      focus:border-blue-500
                       transition-all
-                      text-white
-                      placeholder:text-white/60
+                      text-gray-900 dark:text-white
+                      placeholder:text-gray-400 dark:placeholder:text-gray-500
                     "
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-white mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   {t("formSubjectLabel", "Subject")}
                 </label>
                 <select
                   className="
                     w-full
                     px-4 py-3
-                    bg-card
-                    border border-input
+                    bg-white dark:bg-slate-900
+                    border border-gray-300 dark:border-slate-600
                     rounded-lg
                     focus:outline-none
-                    focus:ring-2 focus:ring-gold/50
-                    focus:border-gold
+                    focus:ring-2 focus:ring-blue-500
+                    focus:border-blue-500
                     transition-all
-                    text-white
-                    bg-card
+                    text-gray-900 dark:text-white
                   "
                 >
                   <option value="">
@@ -217,7 +216,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-white mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   {t("formMessageLabel", "Message")}
                 </label>
                 <textarea
@@ -226,21 +225,21 @@ const Contact = () => {
                   className="
                     w-full
                     px-4 py-3
-                    bg-card
-                    border border-input
+                    bg-white dark:bg-slate-900
+                    border border-gray-300 dark:border-slate-600
                     rounded-lg
                     focus:outline-none
-                    focus:ring-2 focus:ring-gold/50
-                    focus:border-gold
+                    focus:ring-2 focus:ring-blue-500
+                    focus:border-blue-500
                     transition-all
                     resize-none
-                    text-white
-                    placeholder:text-white/60
+                    text-gray-900 dark:text-white
+                    placeholder:text-gray-400 dark:placeholder:text-gray-500
                   "
                 />
               </div>
 
-              <Button variant="default" size="lg" className="w-full text-white">
+              <Button variant="default" size="lg" className="w-full bg-blue-600 hover:bg-blue-700 text-white">
                 <Send size={18} />
                 {t("formSendButton", "Send Message")}
               </Button>

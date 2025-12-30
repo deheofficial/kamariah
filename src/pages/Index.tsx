@@ -14,7 +14,7 @@ import ThemeSwitcher from "@/components/ThemeSwitcher";
 const Index = () => {
   return (
     <I18nextProvider i18n={i18n}>
-      <main className="min-h-screen bg-background dark:bg-black transition-colors duration-300">
+      <main className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
         <ThemeSwitcher />
         <Navbar />
         <Hero />

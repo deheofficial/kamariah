@@ -32,7 +32,7 @@ const OurPromise = () => {
   ];
 
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-gray-50 dark:bg-slate-800">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
@@ -52,20 +52,20 @@ const OurPromise = () => {
             {promises.map((promise, index) => (
               <div
                 key={promise.title}
-                className="flex gap-4 p-6 bg-background rounded-xl border border-border/50 hover:border-gold/30 hover:shadow-soft transition-all duration-300"
+                className="flex gap-4 p-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-slate-700"
               >
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-gold to-amber text-white shadow-md ring-1 ring-gold/25">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center bg-blue-50 dark:bg-blue-900/30">
                     {promise.icon && (
-                      <promise.icon size={28} color="#f59e42" strokeWidth={2.2} />
+                      <promise.icon size={24} className="text-blue-600 dark:text-blue-400" strokeWidth={2} />
                     )}
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-serif text-lg font-semibold text-foreground mb-1">
+                  <h3 className="font-serif text-lg font-semibold text-gray-900 dark:text-white mb-2">
                     {promise.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-gray-600 dark:text-gray-300">
                     {promise.description}
                   </p>
                 </div>
