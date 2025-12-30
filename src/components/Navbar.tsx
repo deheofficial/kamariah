@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
 import KamariahLogo from "@/assets/KamariahLogo.png";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Sun, Moon, Globe, ChevronDown } from "lucide-react";
+import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  // const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,19 +16,6 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Force dark theme
-  useEffect(() => {
-    document.documentElement.classList.add("dark");
-  }, []);
-
-  // const toggleTheme = () => {
-  //   const next = theme === "light" ? "dark" : "light";
-  //   setTheme(next);
-  //   if (next === "dark") document.documentElement.classList.add("dark");
-  //   else document.documentElement.classList.remove("dark");
-  //   localStorage.setItem("theme", next);
-  // };
 
   // Language switcher state
   const [lang, setLang] = useState(i18n.language || "en");
@@ -82,15 +67,6 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          {/* Theme toggle */}
-          {/* <Button
-            variant="ghost"
-            size="sm"
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-          >
-            {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
-          </Button> */}
           <div className="relative">
             <button
               className={
@@ -119,7 +95,6 @@ const Navbar = () => {
               </div>
             )}
           </div>
-          <ThemeSwitcher />
         </div>
 
         {/* Mobile Menu Button */}
@@ -192,11 +167,6 @@ const Navbar = () => {
               >
                 Contact Us
               </Button>
-
-              {/* mobile theme toggle */}
-              {/* <Button variant="ghost" size="sm" onClick={toggleTheme} aria-label="Toggle theme">
-                {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
-              </Button> */}
             </div>
           </div>
         </div>

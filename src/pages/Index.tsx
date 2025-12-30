@@ -9,13 +9,11 @@ import Footer from "@/components/Footer";
 import PromoPopup from "@/components/PromoPopup";
 import { I18nextProvider } from "react-i18next";
 import i18n from "@/i18n";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 const Index = () => {
   return (
     <I18nextProvider i18n={i18n}>
       <main className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
-        <ThemeSwitcher />
         <Navbar />
         <Hero />
         <BrandStory />
