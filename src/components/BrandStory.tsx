@@ -138,7 +138,7 @@ const BrandStory = () => {
           {values.map((value, index) => (
             <div
               key={value.title}
-              className="group bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-slate-700"
+              className="group bg-gray-50 dark:bg-slate-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-slate-700"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="mb-4 flex items-center justify-center">

@@ -30,7 +30,7 @@ const Export = () => {
   ];
 
   return (
-    <section id="export" className="py-24 bg-gray-50 dark:bg-slate-800">
+    <section id="export" className="py-24 bg-white dark:bg-slate-900">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
@@ -61,7 +61,7 @@ const Export = () => {
               <h3 className="font-medium text-gray-900 dark:text-white mb-4">{t("whyChooseUsTitle", "Why International Buyers Choose Us:")}</h3>
               <div className="grid sm:grid-cols-2 gap-4">
                 {reasons.map((reason) => (
-                  <div key={reason.text} className="flex items-center gap-3 p-3 bg-white dark:bg-slate-900 rounded-lg border border-gray-100 dark:border-slate-700">
+                  <div key={reason.text} className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-100 dark:border-slate-700">
                     <div className="w-10 h-10 bg-blue-50 dark:bg-blue-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
                       <reason.icon className="text-blue-600 dark:text-blue-400" size={20} />
                     </div>
