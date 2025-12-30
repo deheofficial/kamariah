@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import KamariahLogo from "@/assets/KamariahLogo.PNG";
+import KamariahLogo from "@/assets/KamariahLogo.png";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Sun, Moon, Globe, ChevronDown } from "lucide-react";
 import i18n from "i18next";
