@@ -25,7 +25,7 @@ const Hero = () => {
           alt="Golden cooking oil splash"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brown/60 via-brown/40 to-brown/80 dark:from-slate-900/70 dark:via-slate-900/60 dark:to-slate-900/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
       </div>
 
       {/* Content */}
