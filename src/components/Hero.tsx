@@ -38,7 +38,7 @@ const Hero = () => {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 container mx-auto px-4 py-16 md:py-20">
+      <div className="relative z-10 container mx-auto px-4 pt-24 pb-16 sm:pt-28 md:py-20">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
 
           {/* Left Content */}
