@@ -19,25 +19,25 @@ const Hero = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background"
     >
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100">
         <img
           src={heroImage}
           alt="Kamariah cooking oil bottle"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/20 to-white/40" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
           {/* Tagline */}
-          <p className="text-2xl md:text-3xl text-gray-800 dark:text-gray-900 font-serif italic mb-4 animate-fade-up delay-200 drop-shadow-sm">
+          <p className="text-2xl md:text-3xl text-gray-900 font-serif italic mb-4 animate-fade-up delay-200 drop-shadow-md bg-white/70 backdrop-blur-sm px-6 py-3 rounded-lg inline-block">
             {t("tagline")}
           </p>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-800 max-w-2xl mx-auto mb-10 animate-fade-up delay-300 drop-shadow-sm">
+          <p className="text-lg md:text-xl text-gray-800 max-w-2xl mx-auto mb-10 animate-fade-up delay-300 drop-shadow-md bg-white/70 backdrop-blur-sm px-6 py-3 rounded-lg inline-block">
             {t("description")}
           </p>
 
