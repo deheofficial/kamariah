@@ -13,6 +13,7 @@ import haccp from "@/assets/haccp.png";
 import mpobLogo from "@/assets/mpob.png";
 import { Flame, Droplets, Sparkles, ChefHat, Package, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 
 const Products = () => {
   const { t } = useTranslation();
@@ -50,6 +51,14 @@ const Products = () => {
     { image: mpobLogo, alt: t("mpobLicense") },
     { image: buatanMalaysiaLogo, alt: t("buatanMalaysia") },
   ];
+
+  useEffect(() => {
+    const imagesToPreload = [productImage, ...sizes.map((s) => s.img)];
+    imagesToPreload.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+  }, []);
 
   return (
     <section id="products" className="py-16 md:py-24 bg-white dark:bg-slate-900">

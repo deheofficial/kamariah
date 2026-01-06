@@ -6,6 +6,13 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const Hero = () => {
+      // Preload all product images on mount
+      useEffect(() => {
+        productImages.forEach((src) => {
+          const img = new window.Image();
+          img.src = src;
+        });
+      }, []);
     // Touch state for swipe
     const [touchStartX, setTouchStartX] = useState<number | null>(null);
     const [touchEndX, setTouchEndX] = useState<number | null>(null);
