@@ -35,7 +35,7 @@ const Export = () => {
         <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
           {/* Content */}
           <div>
-            <span className="font-medium text-sm uppercase tracking-widest" style={{ color: 'var(--light-blue, #60a5fa)' }}>{t("globalReach")}</span>
+            <span className="font-medium text-sm uppercase tracking-widest text-blue-900 dark:text-blue-300">{t("globalReach")}</span>
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mt-3 mb-4 md:mb-6">
               {t("exportTitle", "Our Global Presence")}
             </h2>

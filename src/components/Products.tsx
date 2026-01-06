@@ -65,7 +65,7 @@ const Products = () => {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
-          <span className="font-medium text-sm uppercase tracking-widest" style={{ color: 'var(--light-blue, #60a5fa)' }}>{t("ourProducts")}</span>
+          <span className="font-medium text-sm uppercase tracking-widest text-blue-900 dark:text-blue-300">{t("ourProducts")}</span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mt-3 mb-4">
             RBD Palm Olein - CP8
           </h2>

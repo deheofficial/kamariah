@@ -82,7 +82,7 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         {/* ===== Section Header ===== */}
         <div className="text-center mb-14 sm:mb-16">
-          <span className="font-medium text-sm uppercase tracking-widest" style={{ color: 'var(--light-blue, #60a5fa)' }}>
+          <span className="font-medium text-sm uppercase tracking-widest text-blue-900 dark:text-blue-300">
             {t("contactUs")}
           </span>
 

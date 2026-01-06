@@ -59,13 +59,13 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 mt-24"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-100 via-blue-50 to-cyan-100 dark:from-blue-950 dark:via-blue-900 dark:to-slate-900 mt-24"
     >
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-200/30 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-200/30 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-yellow-100/20 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-200/30 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-100/20 rounded-full blur-3xl" />
       </div>
 
       {/* Content Container */}
@@ -111,7 +111,7 @@ const Hero = () => {
           <div className="relative animate-fade-up delay-300 mt-8 lg:mt-0">
             <div className="relative w-full max-w-lg mx-auto">
               {/* Glow Effect Behind Image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-300/40 to-orange-300/40 rounded-3xl blur-2xl scale-95" />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-200/40 to-cyan-200/40 rounded-3xl blur-2xl scale-95" />
 
               {/* Product Image */}
               <div
@@ -161,8 +161,8 @@ const Hero = () => {
               </div>
 
               {/* Decorative Accent */}
-              <div className="absolute -top-4 -right-4 md:-top-6 md:-right-6 w-16 h-16 md:w-24 md:h-24 bg-amber-400/30 rounded-full blur-xl" />
-              <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 w-20 h-20 md:w-32 md:h-32 bg-orange-400/30 rounded-full blur-xl" />
+              <div className="absolute -top-4 -right-4 md:-top-6 md:-right-6 w-16 h-16 md:w-24 md:h-24 bg-blue-300/30 rounded-full blur-xl" />
+              <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 w-20 h-20 md:w-32 md:h-32 bg-cyan-300/30 rounded-full blur-xl" />
             </div>
           </div>
         </div>

@@ -35,7 +35,7 @@ const BrandStory = () => {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
-          <span className="font-medium text-sm uppercase tracking-widest text-amber-600 dark:text-amber-400">{t("brandStory.heritage")}</span>
+          <span className="font-medium text-sm uppercase tracking-widest text-blue-900 dark:text-blue-300">{t("brandStory.heritage")}</span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mt-3 mb-4">
             {t("brandStory.title")}
           </h2>
@@ -63,11 +63,7 @@ const BrandStory = () => {
           <div className="space-y-4 md:space-y-6 font-serif">
             <p className="text-sm sm:text-base leading-relaxed text-gray-700 dark:text-gray-300">
               <span className="relative inline-block align-middle">
-                <span className="font-serif text-base font-semibold text-gray-700 dark:text-gray-300">{t("brandStory.brandName", "KAMARIAH")}</span>
-                <span className="absolute -top-1 -right-3 w-3 h-3 text-[8px] font-bold leading-none flex items-center justify-center rounded-full bg-white border border-gray-400 text-gray-700 dark:bg-slate-800 dark:border-slate-500 dark:text-gray-300">
-                  R
-                </span>
-              </span> {t("brandStory.story1")} <span className="font-semibold text-gray-700 dark:text-gray-300">Kamariah Kamaruddin</span>.
+              </span><span className="font-semibold text-gray-700 dark:text-gray-300">Kamariah®</span>{' '}{t("brandStory.story1")} <span className="font-semibold text-gray-700 dark:text-gray-300">Kamariah Kamaruddin</span>.
             </p>
             <p className="text-sm sm:text-base leading-relaxed text-gray-700 dark:text-gray-300">
               {t("brandStory.story2")}
@@ -78,16 +74,16 @@ const BrandStory = () => {
             <p className="text-sm sm:text-base leading-relaxed text-gray-700 dark:text-gray-300">
               {(() => {
                 const story4 = t("brandStory.story4");
-                const brand = t("brandStory.brandName", "KAMARIAH");
-                const idx = story4.indexOf(brand);
+                // Replace 'KAMARIAH' (without ®) with styled Kamariah® and ensure no extra space before comma
+                const idx = story4.indexOf("KAMARIAH");
                 if (idx === -1) return story4;
+                // Check if next char is space or comma
+                let after = story4.slice(idx + "KAMARIAH".length);
+                if (after.startsWith(" ")) after = after.slice(1); // remove extra space
                 return <>
                   {story4.slice(0, idx)}
-                  <span className="relative inline-block align-middle">
-                    <span className="font-serif text-sm sm:text-base font-semibold text-gray-700 dark:text-gray-300">{brand}</span>
-                    <span className="absolute -top-1 -right-3 w-3 h-3 text-[8px] font-bold leading-none flex items-center justify-center rounded-full bg-white border border-gray-400 text-gray-700 dark:bg-slate-800 dark:border-slate-500 dark:text-gray-300">R</span>
-                  </span>
-                  {story4.slice(idx + brand.length)}
+                  <span className="font-semibold text-gray-700 dark:text-gray-300">Kamariah®</span>
+                  {after}
                 </>;
               })()}
             </p>
