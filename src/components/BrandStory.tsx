@@ -1,6 +1,7 @@
 import familyImage from "@/assets/family.png";
 import Flag_of_Malaysia from "@/assets/Flag_of_Malaysia.svg";
-import { Heart, Shield } from "lucide-react";
+import blueShield from "@/assets/image copy copy.png";
+import { Heart } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const MalaysiaFlag = ({ className, size = 24 }: { className?: string; size?: number }) => (
@@ -10,6 +11,15 @@ const MalaysiaFlag = ({ className, size = 24 }: { className?: string; size?: num
     width={Math.round(size * 1.5)}
     height={size}
     className={className}
+  />
+);
+
+const BlueShield = ({ size = 24 }: { size?: number }) => (
+  <img
+    src={blueShield}
+    alt="Shield"
+    width={size}
+    height={size}
   />
 );
 
@@ -55,7 +65,7 @@ const BrandStory = () => {
       description: t("brandStory.values.warmth.description"),
     },
     {
-      icon: Shield,
+      icon: BlueShield,
       title: t("brandStory.values.honest.title"),
       description: t("brandStory.values.honest.description"),
     },
@@ -146,8 +156,8 @@ const BrandStory = () => {
                   <value.icon size={32} />
                 ) : value.icon === Heart ? (
                   <Heart size={32} color="#ef4444" fill="#ef4444" strokeWidth={2} />
-                ) : value.icon === Shield ? (
-                  <Shield size={32} color="#facc15" fill="#facc15" strokeWidth={2} />
+                ) : value.icon === BlueShield ? (
+                  <BlueShield size={32} />
                 ) : value.icon === ForkSpoon ? (
                   <ForkSpoon size={32} className="text-[#cd7f32]" />
                 ) : (
