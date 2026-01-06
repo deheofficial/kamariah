@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-oil.jpg";
+import heroImage from "@/assets/image.png";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -22,22 +22,22 @@ const Hero = () => {
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Golden cooking oil splash"
+          alt="Kamariah cooking oil bottle"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/30" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
           {/* Tagline */}
-          <p className="text-2xl md:text-3xl text-white font-serif italic mb-4 animate-fade-up delay-200">
+          <p className="text-2xl md:text-3xl text-gray-800 dark:text-gray-900 font-serif italic mb-4 animate-fade-up delay-200 drop-shadow-sm">
             {t("tagline")}
           </p>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-white max-w-2xl mx-auto mb-10 animate-fade-up delay-300">
+          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-800 max-w-2xl mx-auto mb-10 animate-fade-up delay-300 drop-shadow-sm">
             {t("description")}
           </p>
 
@@ -46,7 +46,6 @@ const Hero = () => {
             <Button
               variant="hero"
               theme={theme}
-              className="text-white"
               onClick={() => document.getElementById("story")?.scrollIntoView({ behavior: "smooth" })}
             >
               {t("exploreStory")}
@@ -54,7 +53,6 @@ const Hero = () => {
             <Button
               variant="heroOutline"
               theme={theme}
-              className="text-white"
               onClick={() => document.getElementById("products")?.scrollIntoView({ behavior: "smooth" })}
             >
               {t("viewProducts")}
@@ -64,7 +62,7 @@ const Hero = () => {
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-2/4 -translate-x-2/4 animate-float">
-          <ChevronDown className="text-white/70" size={32} />
+          <ChevronDown className="text-gray-600" size={32} />
         </div>
       </div>
 
