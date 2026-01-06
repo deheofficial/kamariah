@@ -38,7 +38,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b-4 border-gold ${isScrolled ? "shadow-lg py-3" : "py-5"} bg-blue-900 text-white`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b-4 border-gold ${isScrolled ? "shadow-lg py-3" : "py-5"} bg-blue-900 dark:bg-blue-950 text-white`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
@@ -47,9 +47,9 @@ const Navbar = () => {
             <img
               src={KamariahLogo}
               alt="Kamariah Logo"
-              className="h-20 w-auto transition-all duration-300"
+              className="h-14 w-auto transition-all duration-300"
             />
-            <span className="absolute -top-2 -right-3 w-3 h-3 text-[8px] font-bold leading-none flex items-center justify-center rounded-full bg-white border border-blue-500 text-blue-900">
+            <span className="absolute -top-1.5 -right-2 w-2 h-2 text-[7px] font-bold leading-none flex items-center justify-center rounded-full bg-white border border-blue-500 text-blue-900">
               R
             </span>
           </span>
@@ -70,7 +70,7 @@ const Navbar = () => {
           <div className="relative">
             <button
               className={
-                "flex items-center gap-2 px-4 py-2 rounded-lg border transition-all font-medium focus:outline-none bg-blue-800 text-white border-blue-700 hover:bg-blue-700"
+                "flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-sm transition-all font-medium focus:outline-none bg-blue-800 text-white border-blue-700 hover:bg-blue-700"
               }
               onClick={() => setLangOpen((v) => !v)}
             >
@@ -157,16 +157,6 @@ const Navbar = () => {
                   </div>
                 )}
               </div>
-              <Button
-                variant="default"
-                className="w-full bg-gold hover:bg-gold-dark text-white"
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                Contact Us
-              </Button>
             </div>
           </div>
         </div>

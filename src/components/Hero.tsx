@@ -63,7 +63,7 @@ const Hero = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
+        <div className="absolute bottom-8 left-2/4 -translate-x-2/4 animate-float">
           <ChevronDown className="text-white/70" size={32} />
         </div>
       </div>

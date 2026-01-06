@@ -140,7 +140,7 @@ const Products = () => {
                     <button
                       key={cert.alt}
                       onClick={() => setSelectedCert(cert)}
-                      className="bg-white dark:bg-slate-800 p-3 rounded-lg flex items-center justify-center hover:shadow-md transition-all duration-300 cursor-pointer border border-gray-100 dark:border-slate-700 hover:scale-105"
+                      className="bg-white p-3 rounded-lg flex items-center justify-center hover:shadow-md transition-all duration-300 cursor-pointer border border-gray-200 hover:scale-105"
                       aria-label={`View ${cert.alt} certificate`}
                     >
                       <img src={cert.image} alt={cert.alt} className="h-14 w-auto" />
@@ -157,18 +157,18 @@ const Products = () => {
       {selectedCert && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={() => setSelectedCert(null)}>
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
-          <div className="relative bg-white dark:bg-slate-900 rounded-2xl shadow-2xl max-w-3xl w-full p-8 animate-fade-up" onClick={(e) => e.stopPropagation()}>
+          <div className="relative bg-white rounded-2xl shadow-2xl max-w-3xl w-full p-8 animate-fade-up" onClick={(e) => e.stopPropagation()}>
             <button
               onClick={() => setSelectedCert(null)}
-              className="absolute top-4 right-4 p-2 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+              className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors"
               aria-label="Close modal"
             >
-              <X size={24} className="text-gray-600 dark:text-gray-400" />
+              <X size={24} className="text-gray-600" />
             </button>
-            <h3 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <h3 className="font-serif text-2xl font-bold text-gray-900 mb-6">
               {selectedCert.alt}
             </h3>
-            <div className="flex items-center justify-center bg-gray-50 dark:bg-slate-800 rounded-xl p-8">
+            <div className="flex items-center justify-center bg-white rounded-xl p-8">
               <img
                 src={selectedCert.fullImage || selectedCert.image}
                 alt={selectedCert.alt}
