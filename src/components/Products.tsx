@@ -52,43 +52,42 @@ const Products = () => {
   ];
 
   return (
-    <section id="products" className="py-24 bg-white dark:bg-slate-900">
+    <section id="products" className="py-16 md:py-24 bg-white dark:bg-slate-900">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-16">
           <span className="font-medium text-sm uppercase tracking-widest" style={{ color: 'var(--light-blue, #60a5fa)' }}>{t("ourProducts")}</span>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mt-3 mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mt-3 mb-4">
             RBD Palm Olein - CP8
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4">
             {t("productDesc")}
           </p>
           <div className="w-24 h-1 bg-gold mx-auto rounded-full mt-6" />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
           {/* Product Image */}
-          <div className="relative">
-            <div className="absolute inset-0 bg-gold/5 rounded-3xl rotate-3" />
-            <div className="relative bg-gradient-to-br from-cream to-cream-dark p-12 rounded-3xl">
-              <div className="flex items-center justify-center rounded-xl mx-auto" style={{ width: '14rem', height: '18rem', padding: '1.5rem' }}>
+          <div className="relative mb-12 sm:mb-16 lg:mb-0">
+            <div className="absolute inset-0 bg-gold/5 rounded-2xl md:rounded-3xl rotate-3" />
+            <div className="relative bg-gradient-to-br from-cream to-cream-dark p-6 sm:p-8 md:p-12 rounded-2xl md:rounded-3xl">
+              <div className="flex items-center justify-center rounded-xl mx-auto w-48 h-64 p-4 sm:w-56 sm:h-72 sm:p-6">
                 <img
                   src={selectedSize ? selectedSize.img : productImage}
                   alt={selectedSize ? selectedSize.label : "Kamariah CP8 Cooking Oil"}
-                  className="max-w-full max-h-full object-contain animate-float"
-                  style={{ width: '100%', height: '100%' }}
+                  className="w-full h-full object-contain animate-float"
                 />
               </div>
             </div>
-            
+
             {/* Size Badges as Buttons */}
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex gap-3">
+            <div className="absolute -bottom-8 sm:-bottom-4 left-1/2 -translate-x-1/2 flex flex-wrap justify-center gap-2 sm:gap-3 w-full px-4">
               {sizes.map((size) => (
                 <button
                   key={size.label}
                   type="button"
                   onClick={() => setSelectedSize(size)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium border transition-colors
+                  className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium border transition-colors
                     ${selectedSize && selectedSize.label === size.label
                       ? 'bg-[hsl(190,100%,80%)] text-blue-dark border-blue-dark dark:bg-[hsl(190,80%,30%)] dark:text-white'
                       : 'bg-white text-blue-dark border-border hover:bg-[hsl(190,100%,90%)] dark:bg-white dark:text-black dark:hover:bg-[hsl(190,80%,20%)]'}`}
@@ -100,31 +99,32 @@ const Products = () => {
           </div>
 
           {/* Product Info */}
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             {/* Benefits */}
             <div>
-              <h3 className="font-serif text-2xl font-semibold text-foreground mb-6">
+              <h3 className="font-serif text-xl sm:text-2xl font-semibold text-foreground mb-4 md:mb-6">
                 {t("ourGoodness")}
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 {benefits.map((benefit) => (
-                  <div key={benefit.text} className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
-                    <div className="w-10 h-10 bg-blue-50 dark:bg-blue-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <benefit.icon size={22} className="text-blue-600 dark:text-blue-400" strokeWidth={2} />
+                  <div key={benefit.text} className="flex items-center gap-3 md:gap-4 p-2.5 md:p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                    <div className="w-9 h-9 md:w-10 md:h-10 bg-blue-50 dark:bg-blue-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <benefit.icon size={20} className="md:w-[22px] md:h-[22px] text-blue-600 dark:text-blue-400" strokeWidth={2} />
                     </div>
-                    <span className="text-gray-800 dark:text-gray-200">{benefit.text}</span>
+                    <span className="text-sm sm:text-base text-gray-800 dark:text-gray-200">{benefit.text}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4">
-              <Button variant="default" className="text-white" onClick={() => setShowSpecs(true)}>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4">
+              <Button variant="default" className="text-white w-full sm:w-auto" onClick={() => setShowSpecs(true)}>
                 {t("viewSpecifications")}
               </Button>
               <Button
                 variant="warm"
+                className="w-full sm:w-auto"
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               >
                 {t("enquireNow")}
@@ -134,16 +134,16 @@ const Products = () => {
             {/* Certifications */}
             <div>
               <h4 className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-3">{t("certifications")}</h4>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2 sm:gap-3">
                 {certifications.map((cert, idx) => (
                   cert.image ? (
                     <button
                       key={cert.alt}
                       onClick={() => setSelectedCert(cert)}
-                      className="bg-white p-3 rounded-lg flex items-center justify-center hover:shadow-md transition-all duration-300 cursor-pointer border border-gray-200 hover:scale-105"
+                      className="bg-white p-2 sm:p-3 rounded-lg flex items-center justify-center hover:shadow-md transition-all duration-300 cursor-pointer border border-gray-200 hover:scale-105"
                       aria-label={`View ${cert.alt} certificate`}
                     >
-                      <img src={cert.image} alt={cert.alt} className="h-14 w-auto" />
+                      <img src={cert.image} alt={cert.alt} className="h-10 sm:h-14 w-auto" />
                     </button>
                   ) : null
                 ))}

@@ -27,33 +27,33 @@ const PromoPopup = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 max-w-sm animate-fade-up">
-      <div className="bg-card rounded-2xl shadow-card border border-gold/30 overflow-hidden">
+    <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 left-4 sm:left-auto z-50 max-w-sm animate-fade-up">
+      <div className="bg-card rounded-xl sm:rounded-2xl shadow-card border border-gold/30 overflow-hidden">
         {/* Header */}
-        <div className="bg-gold/10 px-6 py-4 flex items-center justify-between">
+        <div className="bg-gold/10 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Gift className="text-gold" size={20} />
-            <span className="font-serif font-semibold text-foreground">{t("specialOffer")}</span>
+            <Gift className="text-gold w-[18px] h-[18px] sm:w-5 sm:h-5" />
+            <span className="font-serif text-sm sm:text-base font-semibold text-foreground">{t("specialOffer")}</span>
           </div>
           <button
             onClick={handleClose}
             className="p-1 hover:bg-muted rounded-full transition-colors"
           >
-            <X size={18} className="text-muted-foreground" />
+            <X className="w-4 h-4 sm:w-[18px] sm:h-[18px] text-muted-foreground" />
           </button>
         </div>
 
         {/* Content */}
-        <div className="p-6">
-          <h3 className="font-serif text-xl font-bold text-foreground mb-2">
+        <div className="p-4 sm:p-6">
+          <h3 className="font-serif text-lg sm:text-xl font-bold text-foreground mb-2">
             {t("bulkPurchasePromotion")}
           </h3>
-          <p className="text-muted-foreground text-sm mb-4">
+          <p className="text-muted-foreground text-xs sm:text-sm mb-4">
             {t("availableNow")}
           </p>
           <Button
             variant="gold"
-            className="w-full text-black"
+            className="w-full text-black text-sm sm:text-base"
             onClick={() => {
               handleClose();
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });

@@ -30,27 +30,27 @@ const Export = () => {
   ];
 
   return (
-    <section id="export" className="py-24 bg-white dark:bg-slate-900">
+    <section id="export" className="py-16 md:py-24 bg-white dark:bg-slate-900">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
           {/* Content */}
           <div>
             <span className="font-medium text-sm uppercase tracking-widest" style={{ color: 'var(--light-blue, #60a5fa)' }}>{t("globalReach")}</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mt-3 mb-6">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mt-3 mb-4 md:mb-6">
               {t("exportTitle", "Our Global Presence")}
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-base sm:text-lg text-muted-foreground mb-6 md:mb-8">
               {t("exportDesc", "Kamariah Cooking Oil is trusted not only in Malaysia, but also by international buyers across the globe.")}
             </p>
 
             {/* Export Countries */}
-            <div className="mb-10">
-              <h3 className="font-medium text-foreground mb-4">{t("exportCountriesTitle", "We proudly export to:")}</h3>
-              <div className="flex flex-wrap gap-4">
+            <div className="mb-8 md:mb-10">
+              <h3 className="font-medium text-base sm:text-lg text-foreground mb-3 md:mb-4">{t("exportCountriesTitle", "We proudly export to:")}</h3>
+              <div className="flex flex-wrap gap-3 md:gap-4">
                 {exportCountries.map((country) => (
-                  <span key={country.name} className="flex items-center gap-2">
-                    <img src={country.flag} alt={country.alt} className="h-7 w-auto" />
-                    <span className="font-medium text-foreground">{country.name}</span>
+                  <span key={country.name} className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+                    <img src={country.flag} alt={country.alt} className="h-5 sm:h-6 md:h-7 w-auto flex-shrink-0" />
+                    <span className="font-medium text-sm sm:text-base text-foreground truncate">{country.name}</span>
                   </span>
                 ))}
               </div>
@@ -58,14 +58,14 @@ const Export = () => {
 
             {/* Why Choose Us */}
             <div>
-              <h3 className="font-medium text-gray-900 dark:text-white mb-4">{t("whyChooseUsTitle", "Why International Buyers Choose Us:")}</h3>
-              <div className="grid sm:grid-cols-2 gap-4">
+              <h3 className="font-medium text-base sm:text-lg text-gray-900 dark:text-white mb-3 md:mb-4">{t("whyChooseUsTitle", "Why International Buyers Choose Us:")}</h3>
+              <div className="grid sm:grid-cols-2 gap-3 md:gap-4">
                 {reasons.map((reason) => (
-                  <div key={reason.text} className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-100 dark:border-slate-700">
-                    <div className="w-10 h-10 bg-blue-50 dark:bg-blue-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <reason.icon className="text-blue-600 dark:text-blue-400" size={20} />
+                  <div key={reason.text} className="flex items-center gap-2.5 md:gap-3 p-2.5 md:p-3 bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-100 dark:border-slate-700">
+                    <div className="w-9 h-9 md:w-10 md:h-10 bg-blue-50 dark:bg-blue-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <reason.icon className="w-[18px] h-[18px] md:w-5 md:h-5 text-blue-600 dark:text-blue-400" />
                     </div>
-                    <span className="text-sm text-gray-700 dark:text-gray-300">{reason.text}</span>
+                    <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-300">{reason.text}</span>
                   </div>
                 ))}
               </div>
@@ -73,15 +73,15 @@ const Export = () => {
           </div>
 
           {/* Map Illustration */}
-          <div className="relative">
-            <div className="bg-card rounded-3xl p-12 shadow-card border border-border">
+          <div className="relative mt-8 lg:mt-0">
+            <div className="bg-card rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 shadow-card border border-border">
               <div className="relative">
                 {/* World Map Placeholder */}
-                <div className="aspect-square bg-cream rounded-2xl flex items-center justify-center overflow-hidden relative">
-                  <div className="text-center z-10">
-                    <Globe className="w-32 h-32 text-gold mx-auto mb-4 animate-float" />
-                    <p className="font-serif text-2xl font-bold text-foreground">{t("worldwideTrust")}</p>
-                    <p className="text-muted-foreground">{t("fromMalaysia")}</p>
+                <div className="aspect-square bg-cream rounded-xl md:rounded-2xl flex items-center justify-center overflow-hidden relative">
+                  <div className="text-center z-10 px-4">
+                    <Globe className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 text-gold mx-auto mb-3 md:mb-4 animate-float" />
+                    <p className="font-serif text-lg sm:text-xl md:text-2xl font-bold text-foreground">{t("worldwideTrust")}</p>
+                    <p className="text-sm sm:text-base text-muted-foreground">{t("fromMalaysia")}</p>
                   </div>
                   {/* Country Flag Markers - distributed around the map */}
                   <span className="absolute bottom-8 left-8 hidden sm:flex items-center justify-center h-12 w-12 rounded-full bg-card shadow z-20 overflow-hidden">
