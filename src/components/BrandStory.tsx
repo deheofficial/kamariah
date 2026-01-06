@@ -1,51 +1,12 @@
 import familyImage from "@/assets/family.png";
-import Flag_of_Malaysia from "@/assets/Flag_of_Malaysia.svg";
-import { Heart, Shield } from "lucide-react";
+import { Heart, Shield, Flag, Utensils } from "lucide-react";
 import { useTranslation } from "react-i18next";
-
-const MalaysiaFlag = ({ className, size = 24 }: { className?: string; size?: number }) => (
-  <img
-    src={Flag_of_Malaysia}
-    alt="Malaysia flag"
-    width={Math.round(size * 1.5)}
-    height={size}
-    className={className}
-  />
-);
-
-const ForkSpoon = ({ className, size = 24 }: { className?: string; size?: number }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-    aria-hidden="true"
-    focusable="false"
-  >
-    {/* Fork (left) */}
-    <path d="M5 2v7" />
-    <path d="M7 2v7" />
-    <path d="M9 2v7" />
-    <path d="M7 9v13" />
-
-    {/* Spoon (right) */}
-    <path d="M16.5 10c2.2 0 3.5-1.6 3.5-3.5S18.7 3 16.5 3S13 4.6 13 6.5S14.3 10 16.5 10Z" />
-    <path d="M16.5 10v12" />
-  </svg>
-);
-
 
 const BrandStory = () => {
   const { t } = useTranslation();
   const values = [
     {
-      icon: MalaysiaFlag,
+      icon: Flag,
       title: t("brandStory.values.authentic.title"),
       description: t("brandStory.values.authentic.description"),
     },
@@ -60,7 +21,7 @@ const BrandStory = () => {
       description: t("brandStory.values.honest.description"),
     },
     {
-      icon: ForkSpoon,
+      icon: Utensils,
       title: t("brandStory.values.trusted.title"),
       description: t("brandStory.values.trusted.description"),
     },
@@ -142,17 +103,7 @@ const BrandStory = () => {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="mb-4 flex items-center justify-center">
-                {typeof value.icon === "function" && value.icon.name === "MalaysiaFlag" ? (
-                  <value.icon size={32} />
-                ) : value.icon === Heart ? (
-                  <Heart size={32} color="#ef4444" fill="#ef4444" strokeWidth={2} />
-                ) : value.icon === Shield ? (
-                  <Shield size={32} color="#facc15" fill="#facc15" strokeWidth={2} />
-                ) : value.icon === ForkSpoon ? (
-                  <ForkSpoon size={32} className="text-[#cd7f32]" />
-                ) : (
-                  <value.icon size={32} color="#3b82f6" strokeWidth={2} />
-                )}
+                <value.icon size={32} className="text-blue-500" strokeWidth={2} />
               </div>
               <h3 className="font-serif text-base font-semibold text-gray-900 dark:text-white mb-2 text-center">
                 {value.title}
