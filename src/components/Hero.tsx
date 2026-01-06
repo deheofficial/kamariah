@@ -1,17 +1,29 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/image.png";
-import { ChevronDown } from "lucide-react";
+import productImage from "@/assets/image copy.png";
+import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const Hero = () => {
   const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { t } = useTranslation();
+
+  const productImages = [heroImage, productImage];
 
   useEffect(() => {
     const stored = localStorage.getItem("theme");
     setTheme(stored === "dark" ? "dark" : "light");
   }, []);
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % productImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + productImages.length) % productImages.length);
+  };
 
   return (
     <section
@@ -56,7 +68,7 @@ const Hero = () => {
                 variant="heroOutline"
                 theme={theme}
                 size="lg"
-                className="text-base font-semibold"
+                className="text-base font-semibold border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-all shadow-md hover:shadow-lg"
                 onClick={() => document.getElementById("products")?.scrollIntoView({ behavior: "smooth" })}
               >
                 {t("viewProducts")}
@@ -64,7 +76,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Image */}
+          {/* Right Image with Carousel */}
           <div className="relative animate-fade-up delay-300">
             <div className="relative w-full max-w-lg mx-auto">
               {/* Glow Effect Behind Image */}
@@ -73,10 +85,43 @@ const Hero = () => {
               {/* Product Image */}
               <div className="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8">
                 <img
-                  src={heroImage}
+                  src={productImages[currentImageIndex]}
                   alt="Kamariah cooking oil bottle"
-                  className="w-full h-auto object-contain drop-shadow-2xl"
+                  className="w-full h-auto object-contain drop-shadow-2xl transition-opacity duration-300"
                 />
+              </div>
+
+              {/* Navigation Buttons */}
+              <button
+                onClick={prevImage}
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 hover:bg-white dark:hover:bg-gray-800 text-gray-900 dark:text-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all z-10"
+                aria-label="Previous image"
+              >
+                <ChevronLeft size={24} />
+              </button>
+
+              <button
+                onClick={nextImage}
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 hover:bg-white dark:hover:bg-gray-800 text-gray-900 dark:text-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all z-10"
+                aria-label="Next image"
+              >
+                <ChevronRight size={24} />
+              </button>
+
+              {/* Carousel Indicators */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                {productImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-2.5 h-2.5 rounded-full transition-all ${
+                      index === currentImageIndex
+                        ? "bg-amber-600 w-8"
+                        : "bg-gray-400 hover:bg-gray-600"
+                    }`}
+                    aria-label={`Go to image ${index + 1}`}
+                  />
+                ))}
               </div>
 
               {/* Decorative Accent */}
