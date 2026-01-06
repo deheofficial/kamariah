@@ -6,6 +6,30 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const Hero = () => {
+    // Touch state for swipe
+    const [touchStartX, setTouchStartX] = useState<number | null>(null);
+    const [touchEndX, setTouchEndX] = useState<number | null>(null);
+
+    // Handle swipe gesture
+    const handleTouchStart = (e: React.TouchEvent) => {
+      setTouchStartX(e.changedTouches[0].clientX);
+      setTouchEndX(null);
+    };
+    const handleTouchMove = (e: React.TouchEvent) => {
+      setTouchEndX(e.changedTouches[0].clientX);
+    };
+    const handleTouchEnd = () => {
+      if (touchStartX !== null && touchEndX !== null) {
+        const distance = touchStartX - touchEndX;
+        if (distance > 50) {
+          nextImage(); // swipe left
+        } else if (distance < -50) {
+          prevImage(); // swipe right
+        }
+      }
+      setTouchStartX(null);
+      setTouchEndX(null);
+    };
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { t } = useTranslation();
@@ -28,7 +52,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 mt-24"
     >
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -59,7 +83,7 @@ const Hero = () => {
                 variant="hero"
                 theme={theme}
                 size="lg"
-                className="text-sm sm:text-base font-semibold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto"
+                className="text-sm sm:text-base font-semibold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto min-w-[180px]"
                 onClick={() => document.getElementById("story")?.scrollIntoView({ behavior: "smooth" })}
               >
                 {t("exploreStory")}
@@ -68,7 +92,7 @@ const Hero = () => {
                 variant="heroOutline"
                 theme={theme}
                 size="lg"
-                className="text-sm sm:text-base font-semibold border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-all shadow-md hover:shadow-lg w-full sm:w-auto"
+                className="text-sm sm:text-base font-semibold border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-all shadow-md hover:shadow-lg w-full sm:w-auto min-w-[180px]"
                 onClick={() => document.getElementById("products")?.scrollIntoView({ behavior: "smooth" })}
               >
                 {t("viewProducts")}
@@ -83,7 +107,12 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-amber-300/40 to-orange-300/40 rounded-3xl blur-2xl scale-95" />
 
               {/* Product Image */}
-              <div className="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8">
+              <div
+                className="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8"
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+              >
                 <img
                   src={productImages[currentImageIndex]}
                   alt="Kamariah cooking oil bottle"
@@ -129,11 +158,6 @@ const Hero = () => {
               <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 w-20 h-20 md:w-32 md:h-32 bg-orange-400/30 rounded-full blur-xl" />
             </div>
           </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
-          <ChevronDown className="text-gray-600 dark:text-gray-400" size={32} />
         </div>
       </div>
     </section>

@@ -1,9 +1,60 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable react-hooks/rules-of-hooks */
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Send, Clock } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import emailjs from '@emailjs/browser';
+
+// EmailJS config from .env.local
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const Contact = () => {
   const { t } = useTranslation();
+
+  // Form state for EmailJS
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSending(true);
+    setError('');
+    setSent(false);
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          subject: form.subject,
+          message: form.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      setSent(true);
+      setForm({ name: '', email: '', subject: '', message: '' });
+      window.alert('Your inquiry has been sent successfully!');
+    } catch (err) {
+      setError('Failed to send message. Please try again.');
+    } finally {
+      setSending(false);
+    }
+  };
 
   const contactInfo = [
     {
@@ -21,8 +72,8 @@ const Contact = () => {
     {
       icon: MapPin,
       label: t("contactAddressLabel", "Address"),
-      value: "15th Floor, 566 Jalan Ipoh, 51200 Kuala Lumpur, Malaysia",
-      href: "https://maps.app.goo.gl/cujWzoFtvFxzNi5WA",
+      value: "15th Floor, 566 Jalan Ipoh, 51200\nKuala Lumpur, Malaysia",
+      href: "https://maps.app.goo.gl/DuM63N7CsAMFdm586",
     },
   ];
 
@@ -84,7 +135,7 @@ const Contact = () => {
                 <h3 className="font-serif text-lg font-semibold text-gray-900 dark:text-white mb-2">
                   {info.label}
                 </h3>
-                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 break-all sm:break-words">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 break-all sm:break-words whitespace-pre-line">
                   {info.value}
                 </p>
               </div>
@@ -130,7 +181,7 @@ const Contact = () => {
               {t("sendMessageTitle", "Send us a Message")}
             </h3>
 
-            <form className="space-y-5">
+            <form className="space-y-5" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -138,6 +189,9 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
+                    name="name"
+                    value={form.name}
+                    onChange={handleChange}
                     placeholder={t("formNamePlaceholder", "Your name")}
                     className="
                       w-full
@@ -152,6 +206,7 @@ const Contact = () => {
                       text-gray-900 dark:text-white
                       placeholder:text-gray-400 dark:placeholder:text-gray-500
                     "
+                    required
                   />
                 </div>
 
@@ -161,6 +216,9 @@ const Contact = () => {
                   </label>
                   <input
                     type="email"
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
                     placeholder={t("formEmailPlaceholder", "your@email.com")}
                     className="
                       w-full
@@ -175,6 +233,7 @@ const Contact = () => {
                       text-gray-900 dark:text-white
                       placeholder:text-gray-400 dark:placeholder:text-gray-500
                     "
+                    required
                   />
                 </div>
               </div>
@@ -184,6 +243,9 @@ const Contact = () => {
                   {t("formSubjectLabel", "Subject")}
                 </label>
                 <select
+                  name="subject"
+                  value={form.subject}
+                  onChange={handleChange}
                   className="
                     w-full
                     px-4 py-3
@@ -196,6 +258,7 @@ const Contact = () => {
                     transition-all
                     text-gray-900 dark:text-white
                   "
+                  required
                 >
                   <option value="">
                     {t("formSubjectSelect", "Select inquiry type")}
@@ -221,6 +284,9 @@ const Contact = () => {
                 </label>
                 <textarea
                   rows={4}
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
                   placeholder={t("formMessagePlaceholder", "Tell us about your inquiry...")}
                   className="
                     w-full
@@ -236,12 +302,13 @@ const Contact = () => {
                     text-gray-900 dark:text-white
                     placeholder:text-gray-400 dark:placeholder:text-gray-500
                   "
+                  required
                 />
               </div>
 
-              <Button variant="default" size="lg" className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+              <Button variant="default" size="lg" className="w-full bg-blue-600 hover:bg-blue-700 text-white" type="submit" disabled={sending}>
                 <Send size={18} />
-                {t("formSendButton", "Send Message")}
+                {sending ? 'Sending...' : t("formSendButton", "Send Message")}
               </Button>
             </form>
           </div>
