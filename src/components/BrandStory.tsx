@@ -102,11 +102,11 @@ const BrandStory = () => {
           <div className="space-y-6 font-serif">
             <p className="text-base leading-relaxed text-gray-700 dark:text-gray-300">
               <span className="relative inline-block align-middle">
-                <span className="font-serif text-lg font-semibold text-gray-900 dark:text-white">{t("brandStory.brandName", "KAMARIAH")}</span>
-                <span className="absolute -top-2 -right-3 w-3 h-3 text-[8px] font-bold leading-none flex items-center justify-center rounded-full bg-white border border-gray-400 text-gray-700 dark:bg-slate-800 dark:border-slate-500 dark:text-gray-300">
+                <span className="font-serif text-base font-semibold text-gray-700 dark:text-gray-300">{t("brandStory.brandName", "KAMARIAH")}</span>
+                <span className="absolute -top-1 -right-3 w-3 h-3 text-[8px] font-bold leading-none flex items-center justify-center rounded-full bg-white border border-gray-400 text-gray-700 dark:bg-slate-800 dark:border-slate-500 dark:text-gray-300">
                   R
                 </span>
-              </span> {t("brandStory.story1")} <span className="font-semibold text-gray-900 dark:text-white">Kamariah Kamaruddin</span>.
+              </span> {t("brandStory.story1")} <span className="font-semibold text-gray-700 dark:text-gray-300">Kamariah Kamaruddin</span>.
             </p>
             <p className="text-base leading-relaxed text-gray-700 dark:text-gray-300">
               {t("brandStory.story2")}
@@ -123,8 +123,8 @@ const BrandStory = () => {
                 return <>
                   {story4.slice(0, idx)}
                   <span className="relative inline-block align-middle">
-                    <span className="font-serif text-lg font-semibold text-gray-900 dark:text-white">{brand}</span>
-                    <span className="absolute -top-2 -right-3 w-3 h-3 text-[8px] font-bold leading-none flex items-center justify-center rounded-full bg-white border border-gray-400 text-gray-700 dark:bg-slate-800 dark:border-slate-500 dark:text-gray-300">R</span>
+                    <span className="font-serif text-base font-semibold text-gray-700 dark:text-gray-300">{brand}</span>
+                    <span className="absolute -top-1 -right-3 w-3 h-3 text-[8px] font-bold leading-none flex items-center justify-center rounded-full bg-white border border-gray-400 text-gray-700 dark:bg-slate-800 dark:border-slate-500 dark:text-gray-300">R</span>
                   </span>
                   {story4.slice(idx + brand.length)}
                 </>;
